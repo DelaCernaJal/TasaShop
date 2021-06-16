@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="box">
+	<div class="cartdetailcon">
+		<div class="cartdetailbox ">
+			<a class="btn" href="{% url 'shop' %}">&#x2190; Continue Shopping</a>
+			<table class="table">
+				<tr>
+					<th><h5>Items: <strong>{{order.cart_item}}</strong></h5></th>
+					<th><h5>Total: <strong>Php{{order.cart_total}}</strong></h5></th>
+					<th><a style="float:right; margin: 5px;" class="btn" href="{% url 'checkout' %}">Checkout</a></th>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div class="cartdetailbox">
+			<div class="cart-row">
+				<div style="flex:2"></div>
+				<div style="flex:2"><strong>Design</strong></div>
+				<div style="flex:2"><strong>Item</strong></div>
+				<div style="flex:2"><strong>Price</strong></div>
+				<div style="flex:1.4"><strong>Quantity</strong></div>
+				<div style="flex:1"><strong>Total</strong></div>
+			</div>
+			{% for cl in cartlist %}
+				<div class="cart-row">
+					<div style="flex:2"><img class="row-image" src="{{cl.product.imgurl}}"></div>
+					<div style="flex:2"><img class="row-image" src="{% static 'img/sampledesign.jpg' %}"></div>
+					<div class="row-con" style="flex:2">{{cl.product.name}}</div>
+					<div class="row-con" style="flex:2">Php {{cl.product.price}}</div>
+<!--dagdag order-->	<div style="flex:.2"><img style="margin-left:5px;" class="chg-quan row-con" src="{% static 'img/A-left.png' %}"></div>
+<!-- QUANTITY -->	<div style="font-size: 25px; padding-top: 28px; flex:2;" class="quan row-con">{{cl.quan}}</div>
+<!-- bawas order--> <div style="flex:1"><img style="margin-left:10px;" class="chg-quan row-con" src="{% static 'img/A-right.png' %}"></div>
+					<div class="row-con" style="flex:1">Php {{cl.total}}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>	
+{% endblock %}
+
+
+		

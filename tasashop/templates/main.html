@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title> MUGSHOP </title>
+    <!-- bootstrap here, if meron -->
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!--icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+</head>
+<body>
+<!--------------NAVBAR-------------->
+  <div style="position: sticky;" class="navbar">
+      <div class="logo">
+        <a href="{% url 'shop' %}">
+          <img src="{% static 'img/logo.png' %}">
+        </a>
+      </div>
+
+      <nav>
+        <ul>
+          <!-- if user.is_authenticated -->
+          <li class="dropdown" >
+            <a class="dropbtn" style="font-style: italic; font-weight: 500;" href="">Username</a>
+              <div class="drop-con">
+                <a href="{% url 'account' %}">View Profile</a>
+                <a href="{% url 'account' %}">Logout</a>
+              </div>
+          </li>
+          <!-- else -->
+          <li><a href="#">Login</a></li>
+         
+           <!-- endif  -->
+          <li><a href="{% url 'shop' %}">Shop  </a></li>
+        </ul>
+      </nav>
+
+      <div class="cartbox">          
+        <a href="{% url 'cart' %}">
+          <p id="cart-total" style="color: black;">{{order.cart_item}}</p>   
+          <img id="cart-icon" src="{% static 'img/cart-icon.png' %}">
+        </a>
+      </div>                          
+    </div>
+<!--------------END NAVBAR-------------->
+
+	<div>
+		{% block content %}
+
+
+		{% endblock content %}
+	</div>
+
+<!--------------FOOTER-------------->
+    <div class="footer">
+    <div>
+      <div class="row">
+        <div class="box4">
+          <h2 style="margin-top: 5px; color: white; font-size: 30px;" >
+            <img style="height:40px; width:50px; margin-bottom: -5px" src="{% static 'img/logo.png' %}">
+            TasaShop
+          </h2>
+          <a href="#" class="fa fa-facebook"></a>
+        </div>
+
+        <div class="box4">
+          <hr>
+          <h3>About</h3>
+          <h4>############## </h4>
+          <h4>##############</h4>
+          <a href="#">######</a>
+        </div>
+        <div class="box4">
+          <hr>
+          <h3>Mission and Vision</h3>
+          <h4>############## </h4>
+          <h4>##############</h4>
+          <a href="#">######</a>
+        </div>
+        <div class="box4">
+          <hr>
+          <h3>Feedback</h3>
+          <h4>############## </h4>
+          <h4>##############</h4>
+          <a href="#">######</a>
+        </div>
+
+        <hr style="color: #8fd3fe; width: 95%;">
+
+      </div>
+      <div style="color: orange;" class="footer row">
+            TasaShop &#9786; 2021       
+      </div>
+    </div>
+    </div>
+<!--------------END FOOTER-------------->
+
+<!-- js -->
+      <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/styling.js' %}"></script>
+
+<script>
+    var Cline =  document.getElementById("Cline"); 
+    
+    function all(){
+    Cline.style.transform = "translateX(0px)";
+    }
+
+    function custo(){
+    Cline.style.transform = "translateX(-65px)";
+    }
+
+    function designed(){
+    Cline.style.transform = "translateX(100px)";
+    }
+</script>
+
+
+
+<!-- JS signup and login toggle -->
+
+<!-- <script>
+
+    var LoginForm = document.getElementById("LoginForm");
+    var SignupForm = document.getElementById("SignupForm");
+    var Indicator =  document.getElementById("Indicator");
+      
+      function login(){
+        SignupForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(65px)";
+      }
+      function signup(){
+        SignupForm.style.transform = "translateX(350px)";
+        LoginForm.style.transform = "translateX(350px)";
+        Indicator.style.transform = "translateX(-60px)";
+      }
+
+    </script> -->
+
+</body>
+</html>
+
+
+

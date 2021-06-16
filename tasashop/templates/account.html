@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="acountcontainer">
+	<dir class="container">
+		<div class="header-row">
+			<div class="col-2">
+				<h1>Hi, {{user.username}}</h1>
+				<p>send us design, let customer buy your design for our customizable mugs</p>
+				<a href="#" class="click"> Send Entry (arrow)</a>
+			</div>
+			<div class="col-2">
+				<div>
+					<h1>Your Entries</h1>
+					<hr>
+					<h4>title</h4>
+					<p>Price: 200</p>
+					<a href="#" class="click"> Add More Entries</a>
+				</div>
+
+				<div>
+					<h1>You do not have entries yet</h1>
+					<hr>
+					<h4>title</h4>
+					<p>Price: 200</p>
+					<a href="#" class="click"> Add More Entries</a>
+				</div>
+
+			</div>
+		</div>
+	</dir>
+</div>
+{% endblock %}
