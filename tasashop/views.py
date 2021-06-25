@@ -188,8 +188,8 @@ def productdetails(request, pk):
 
 
 
-def design(request, pk):
-	design = Entries.objects.get(id=pk)
+def cdesign(request, pk):
+	cdesign = Entries.objects.get(id=pk)
 	
 	# img=Entries.objects.all()
 

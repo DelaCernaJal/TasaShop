@@ -26,12 +26,11 @@ urlpatterns = [
 
     path('signup/', signupUser, name='signup_url'),
     path('login/', loginUser, name='login_url'),
-    
     path('logout/', logoutUser, name='logout_url'),
 
     
 
-    # path('design/', design, name='design'),
+    path('cdesign/', cdesign, name='cdesign'),
 
 
     # path("CustomerLogout/", CustomerLogout.as_view(), name="CustomerLogout"),

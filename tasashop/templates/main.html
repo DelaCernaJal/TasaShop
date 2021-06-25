@@ -42,7 +42,7 @@
 <body>
 
 
-  
+
 <!--------------NAVBAR-------------->
   <div style="position: sticky;" class="navbar">
       <div class="logo">
@@ -54,23 +54,14 @@
       <nav>
         <ul>
           {% if user.is_authenticated %}
-          <!-- <li class="dropdown" > -->
-            <a style="margin-left: 90px;" href="{% url 'account' %}" >{{user.username}}</a>
-              <!-- <div class="drop-con"> -->
-                <a href="{% url 'logout_url' %}">Logout</a>
-              
-          <!-- </li> -->
-          {% else %}
-          <li><a href="{% url 'login_url' %}">Login</a></li>
-         
+            <li><a style="margin-left: 90px; color: white;" href="{% url 'account' %}" >{{user.username}}</a></li>
+            <li><a href="{% url 'logout_url' %}">Logout</a></li>
+            
            {% endif  %}
           <li><a href="{% url 'shop' %}">Shop</a></li>
         </ul>
       </nav>
 
-
-
-     
       <div class="cartbox">          
         <a href="{% url 'cart' %}">
            {% if user.is_authenticated %}
@@ -80,89 +71,67 @@
         </a>
       </div>
 
-    </div>
+  </div>
 <!--------------END NAVBAR-------------->
 
-	<div>
-		{% block content %}
+<div>
+	{% block content %}
 
 
-		{% endblock content %}
-	</div>
+
+
+	{% endblock content %}
+</div>
 
 <!--------------FOOTER-------------->
-    <div class="footer">
-    <div>
-      <div class="row">
-        <div class="box4">
-          <h2 style="margin-top: 5px; color: white; font-size: 30px;" >
-            <img style="height:40px; width:50px; margin-bottom: -5px" src="{% static 'img/logo.png' %}">
-            TasaShop
-          </h2>
-          <a href="#" class="fa fa-facebook"></a>
-        </div>
-
-        <div class="box4">
-          <hr>
-          <h3>About</h3>
-          
-          
-          <a href="#"><h4>The Website</h4></a>
-          <a href="#"><h4>The Developer</h4></a>
-        </div>
-        <div class="box4">
-          <hr>
-          <h3>Mission and Vision</h3>
-          <h4>############## </h4>
-          <h4>##############</h4>
-          <a href="#">######</a>
-        </div>
-        <div class="box4">
-          <hr>
-          <h3>Feedback</h3>
-          <h4>############## </h4>
-          <h4>##############</h4>
-          <a href="#">######</a>
-        </div>
-
-        <hr style="color: #8fd3fe; width: 95%;">
-
+<div class="footer">
+  <div>
+    <div class="row">
+      <div class="box4">
+        <h2 style="margin-top: 5px; color: white; font-size: 30px;" >
+          <img style="height:40px; width:50px; margin-bottom: -5px" src="{% static 'img/logo.png' %}">
+          TasaShop
+        </h2>
+        
       </div>
-      <div style="color: orange;" class="footer row">
-            TasaShop &#9786; 2021       
+
+      <div class="box4">
+        <hr>
+        <h3>Contact Us</h3>
+        <h4>09959572475 globe</h4>
+        <h4>09309169132 smart</h4>
+        <h4>imugination@gmail.com</h4>
       </div>
+      
+      <div class="box4">
+        <hr>
+        <h3>Follow Us on</h3>
+        <h4 style="color: white;" class="fa fa-facebook"><a>/imug.ph</a></h4><br>
+        <h4 style="color: white;" class="fa fa-twitter"><a>/mug.imug.ph</a></h4><br>
+        <h4 style="color: white;" class="fa fa-instagram"><a>/insta_imug.ph</a></h4><br>
+      </div>
+
+
+      <div class="box4">
+        <hr>
+        <h3 style="font-size: 22px;">About</h3>
+        <a href="#"><h4>The Website</h4></a>
+        <a href="#"><h4>The Developer</h4></a>
+      </div>
+      <hr style="color: #8fd3fe; width: 95%;">
+
     </div>
+    <div style="color: orange; font-weight:500;" class="footer row">
+          TasaShop &#9786; 2021       
     </div>
+  </div>
+</div>
 <!--------------END FOOTER-------------->
 
 <!-- js -->
 <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/styling.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'js/styling.js' %}"></script> -->
 
-
-
-
-<script type="text/javascript">
-
-      // JS-design signup and login toggle
-      var LoginForm = document.getElementById("LoginForm");
-      var SignupForm = document.getElementById("SignupForm");
-      var Indicator =  document.getElementById("Indicator");
-        
-        function login(){
-          SignupForm.style.transform = "translateX(0px)";
-          LoginForm.style.transform = "translateX(0px)";
-          Indicator.style.transform = "translateX(65px)";
-        }
-        function signup(){
-          SignupForm.style.transform = "translateX(350px)";
-          LoginForm.style.transform = "translateX(350px)";
-          Indicator.style.transform = "translateX(-60px)";
-        }
-</script>
 
 </body>
 </html>
-
-
-

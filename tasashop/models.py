@@ -32,8 +32,7 @@ from django.dispatch import receiver
 
 
 class Entries(models.Model):
-	customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-	artBy = models.CharField(max_length=50, null=True)
+	artBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 	artGcash = models.DecimalField(max_digits=11, decimal_places=0, default=0)
 	artPrice = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 	artName = models.CharField(max_length=200, null=True)

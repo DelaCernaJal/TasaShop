@@ -10,50 +10,38 @@
 
 
 <div class="box">
-	
-	<div class="row">
-		<div class="smallcon">
-			<div class="row">
-				<div  class="category"><a href="{% url 'shop' %}" class="dropbtn">ALL PRODUCTS</a></div>
-				<div  class="category"><a href="{% url 'shop' %}?category=customizable">CUSTOMIZABLE</a></div>
-				<div  class="category"><a href="{% url 'shop' %}?category=designed">PRE-DESIGNED</a></div>
-			<!-- <hr id="Cline"> -->
-			</div>
+		<div class="category">
+			<a href="{% url 'shop' %}" class="dropbtn">ALL PRODUCTS</a>
+			<a href="{% url 'shop' %}?category=customizable">CUSTOMIZABLE</a>
+			<a href="{% url 'shop' %}?category=designed">PRE-DESIGNED</a>
 		</div>
-	</div>
+
+	<!-- </div> -->
 	<div class="smallcon">
 		<div class="row">
 			{% for i in products %}
-			
 			{% if i.category == 'c' %}
 				<div class="box3">
 				<a  href="{% url 'productdetails' i.id %}">
 					<img class="productPic" src="{{i.imgurl}}">
 					<h4><strong>{{i.name}}</strong></h4>
-				
-					<p><small> {{i.category}} </small></p>
 					<p>Php {{i.price}} </p>
 					<button data-product={{i.id}} data-action="add" class="add-btn">Add to Cart <i class="fa fa-shopping-cart" style="font-size:24px; color:  #ff9912;"></i></button>
 				</a>
 				</div>
-
 			{% else %}
 				<div class="box3">
 				<a  href="{% url 'productdetails' i.id %}">
 					<img class="productPic" src="{{i.imgurl}}">
 					<h4><strong>{{i.name}}</strong></h4>
 				</a>
-					<p><small> {{i.category}} </small></p>
 					<p>Php {{i.price}} </p>
 					<button data-product={{i.id}} data-action="add" class="add-btn updateCart-Btn">Add to Cart <i class="fa fa-shopping-cart" style="font-size:24px; color: #ff9912;"></i></button>
 				</div>
 			{% endif %}
-
 			{% endfor %}
 		</div>	
 	</div>
 </div>
 {% endblock %}
-
-
-
+				

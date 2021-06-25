@@ -23,7 +23,7 @@ from .models import *
 class EntryForm(forms.ModelForm): 
 	class Meta: 
 		model = Entries 
-		fields = ('artPrice','artName','artFile','artGcash','artBy')
+		fields = ('artPrice','artName','artFile','artGcash',)
 
 
 

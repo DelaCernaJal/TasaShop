@@ -5,6 +5,7 @@ body{
 
 a{
 	text-decoration: none;
+	text-decoration-style: none;
 }
 
 /*---------------------------------------------------NAVBAR---------------------------------------------------*/
@@ -12,7 +13,7 @@ a{
 	background-color: #1167b1;
 	display: flex;
 	align-items: center;
-	padding: 20px;
+	padding: 5px 20px;
 	position: fixed;
 	top: -1px;
 }
@@ -31,6 +32,7 @@ nav ul{
 nav ul li{
 	display: inline-block;
 	margin-right: 20px;
+	color: white;
 }
 
 nav ul li a{
@@ -41,50 +43,11 @@ nav ul li a:hover{
 }
 
 .logo a img{
-	width:90px;
+	width:60px;
 	display: inline-block;
 	margin-left: 15px;
 }
 
-/*---------------------------------------------------NAVBAR-dropdown---------------------------------------------------*/
-.dropdown {
-  float: left;
-  padding-right: 85px;
-}
-
-.dropdown .dropbtn {
-  border: none;
-  outline: none;
-  color: white;
-}
-
-.dropbtn:hover {
-  color: orange;
-}
-
-.drop-con {
-  display: none;
-  position: absolute;
-  background-color: #1357a6;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,255,0.2);
-}
-
-.drop-con a {
-  color: white;
-  padding: 2px 10px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.drop-con a:hover {
-  color: orange;
-}
-
-.dropdown:hover .drop-con {
-  color: orange;
-  display: block;
-}
 
 .cartbox{
 	margin: 0 40px;
@@ -173,7 +136,9 @@ nav ul li a:hover{
 .box3:hover{
 	box-shadow: 0px 1px 8px #1167b1;
 }
-.sort_category{
+
+
+/*.sort_category{
 	background-color: red;
 	border: 1px solid black;
 	float: left;
@@ -181,6 +146,7 @@ nav ul li a:hover{
 	margin: 30px 0 0 0;
 	padding: 10px
 }
+
 .sort_category ul li{
 	display: block;
 }
@@ -188,29 +154,34 @@ nav ul li a:hover{
 	font-size: 20px;
 	display: inline-block;
 	list-style-type: none;
-}
+}*/
 
 #Cline{
-	width: 200px;
+	width: 100px;
 	border: none;
-	background: blue;
+	background: orange;
 	height: 3px;
-	margin-bottom: 20px;
-	margin: 10px
-	transform: translateX(100px);
-	transition: transform 1s;
+	margin: 0 2px 2px 20px;
+	transform: translateX(1360px);
+	/*transition: transform 1s;*/
 }
 
 .category{
-	max-height: 100px; 
-	border: 1px black; 
-	margin: 20px 20px 0 20px;
+	margin: 50px 0 10px 1080px;
+	padding: 10px 0;
 }
 
 .category a{
-	font-size: 30px;
+	padding: 10px;
+	font-size: 15px;
 	text-decoration: none;
+	color: black;
+}
+
+.category a:hover{
+	/*background-color: red;*/
 	color: orange;
+	font-weight: 500;
 }
 /*---------------------------------------------------END-SHOP---------------------------------------------------*/
 
@@ -230,6 +201,7 @@ nav ul li a:hover{
 	flex-basis: 18%;
 	padding: 10px;
 	min-width: 50%;
+	/*height: 400px;*/
 }
 .pbox h2{
 	font-weight: 400;
@@ -263,12 +235,13 @@ nav ul li a:hover{
 	flex-basis: 18%;
 	padding: 10px;
 	max-width: 45%;
+	height: 50px;
 	border: solid 1px orange;
 	transition: background .7s;
 } 
 .productPic{
 	width: 100%;
-	height: 350px;
+	height: 390px;
 }
 /*---------------------------------------------------END - PRODUCT DETAILS---------------------------------------------------*/
 
@@ -287,19 +260,23 @@ nav ul li a:hover{
 	width: 1300px;
 	margin: auto;
 }	
+
+
 .btn{
 	display: inline-block;
-	background: #ff523b;
+	background-color: #104a8e;
 	color: white;
 	padding: 8px 30px;
 	margin: 25px 0 0 0;
 	border-radius: 30px;
-	transition: background .5s;
+	transition: background .3s;
 }
 .btn:hover{
-	background: lightblue;
-	color: orange;
+	outline: none;
+	background-color: #3895d3;
 }
+
+
 .table{
 	width: 90%;
 }
@@ -386,7 +363,7 @@ nav ul li a:hover{
 .footer{
 	background-color: #1167b1;
 	color: white;
-	padding: 10px;
+	padding: 2px;
 
 }
 .row{
@@ -394,16 +371,18 @@ nav ul li a:hover{
 	align-items: center;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	margin-top: 20px;
+	margin-top: 1px;
 }
 .box4{
 	flex-basis: 20%;
-	color: #8fd3fe;
+	color: black;
 	font-size: 15px;
+	margin-top: 0;
+	padding-top: 0;
 }
 .box4 h1{
-	margin: 20px;	
-	padding: 20px;	
+	margin: 5px;	
+	padding: 5px;	
 }
 
 .box4 h3, h4, a{
@@ -418,11 +397,11 @@ nav ul li a:hover{
 
 .box4 a{
 	text-decoration: none;
-	color: white;
+	color: black;
 }
 
-.box4:hover h3{
-	color: orange;
+.box4 h3{
+	color: white;
 }
 
 .box4 img{
@@ -489,61 +468,7 @@ nav ul li a:hover{
 
 
 /*---------------------------------------------------LOGIN---------------------------------------------------*/
-.user_card {
-	width: 350px;
-	margin-top: auto;
-	margin-bottom: auto;
-	background: #74cfbf;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	padding: 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 5px;
-}
 
-.form_container {
-	margin-top: 20px;
-}
-
-#form-title{
-	color: #fff;
-	
-}
-
-.login_btn {
-	width: 100%;
-	background: #33ccff !important;
-	color: white !important;
-}
-.login_btn:focus {
-	box-shadow: none !important;
-	outline: 0px !important;
-}
-.login_container {
-	padding: 0 2rem;
-}
-.input-group-text {
-	background: #f7ba5b !important;
-	color: white !important;
-	border: 0 !important;
-	border-radius: 0.25rem 0 0 0.25rem !important;
-}
-.input_user,
-.input_pass:focus {
-	box-shadow: none !important;
-	outline: 0px !important;
-}
-
-#messages{
-	background-color: grey;
-	color: #fff;
-	padding: 10px;
-	margin-top: 10px;
-}
 /*---------------------------------------------------END-LOGIN---------------------------------------------------*/
 
 
@@ -599,22 +524,6 @@ nav ul li a:hover{
 /*---------------------------------------------------END-SIGN-UP---------------------------------------------------*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .account-page{
 	padding: 50px 0;
 	background: radial-gradient(white, lightblue);
@@ -667,17 +576,28 @@ form input{
 	border: 1px solid #ccc;
 }
 
-form .btn{
+form .sign-btn{
 	width: 100%;
 	border: none;
 	cursor: pointer;
-	margin: 10px 0;
-	background-color: blue;
+	margin: 25px 0 0 0;
+	color: white;
+	border-radius: 30px;
+	padding: 8px 30px;
+	background-color: #104a8e;
+	transition: background .3s;
 }
 
-form .btn:focus{
+form .sign-btn:hover{
 	outline: none;
+	background-color: #3895d3;
 }
+
+
+
+
+
+
 
 #LoginForm{
 	left: 0;
@@ -686,7 +606,7 @@ form .btn:focus{
 }
 
 #SignupForm{
-	left: -350px;
+	left: -1px;
 	top: 95px;
 	
 }
@@ -695,13 +615,23 @@ form a{
 	font-size: 12px;
 }
 
-#Indicator{
+#loginLine{
 	width: 100px;
 	border: none;
-	background: blue;
+	background: #104a8e;
 	height: 3px;
 	margin-top: 8px;
 	transform: translateX(60px);
+	transition: transform 1s;
+}
+
+#signupLine{
+	width: 100px;
+	border: none;
+	background: #104a8e;
+	height: 3px;
+	margin-top: 8px;
+	transform: translateX(-60px);
 	transition: transform 1s;
 }
 
@@ -732,4 +662,3 @@ form a{
 	max-width: 100%;
 	padding: 50px 0;
 }
-*/

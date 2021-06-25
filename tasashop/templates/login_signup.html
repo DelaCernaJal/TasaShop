@@ -1,111 +1,45 @@
 {% extends 'main.html' %}
 {% load static %}
 
+{% block title %} MUGSHOP {% endblock %}
 
 {% block content %}
-<div class="acountcontainer">
-			{% comment %}
-				<h4>LOGIN TO BUDDY</h4>
-					{% if form.errors %}
-					<p>MAY ERROR KA BUDDY</p>
-					{% endif %}
-
-					{% if next %}
-					<p>BAWAL KA DUN BUDDY!</p>
-					{% endif %}
-
-					<form action="{% url 'login' %}" method="POST">
-						{% csrf_token %}
-
-						<p>USERNAME BUDDY: {{ form.username }}</p>
-						<p>PASSWORD BUDDY: {{ form.password }}</p>
-						
-						<input type="submit" value="BUDDY">
-						<input type="hidden" name="next" value="{{ next }}">
-					</form>
-			
-	<div>
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-
-
-					<h3 id="form-title">LOGIN</h3>
-				</div>
-				<div class="d-flex justify-content-center form_container">
-					<form method="POST" action="">
-						{% csrf_token %}
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="username" placeholder="Username..." class="form-control">
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-								<input type="password" name="password" placeholder="Password..." class="form-control" >
-						</div>
-
-							<div class="d-flex justify-content-center mt-3 login_container">
-				 				<input class="btn login_btn" type="submit" value="Login">
-				   			</div>
-					</form>
-
-				</div>
-		
-				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'signup' %}" class="ml-2">Sign Up</a>
-					</div>
-			
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
-
-{% endcomment %}
 <div class="account-page">
 	<div class="container">
 		<div class="row">
 			<div class="col-2">
-				<h1 class="col-2">We Take Mugs Seriously,<br>Let's Make it Personalllyy</h1>
-				<p class="col-2">hey, we also help small artist by dispalying their arts here, possible to be a mug design.<br>Are you an artist? send us your entry now!</p>
-				<a href="#" class="click"> Send Entry (arrow)</a>
+				<h1 class="col-2">We Take Mugs Seriously,<br>Let's Make it Personal</h1>
+				<p class="col-2">We sell mugs, and we also customize!, by purchasing a design from other user, you also help them achieved their dreams :) <br> Do you need mugs? or Are you an artist?<br>
+					<span style="color: darkorange; font-weight: 500;"> Sign up send us your entry now!</span></p>
 			</div>
 			
 			<div class="col-2">
 				<div class="form-container">
 					<div class="form-btn">
-						<a href="{% url 'signup_url' %}"><span onclick="signup()">SignUp</span></a>
-						<a href="{% url 'login_url' %}"><span onclick="login()">Login</span></a>
-						<hr id="Indicator">
+						<a href="{% url 'signup_url' %}"><span>SignUp</span></a>
+						<a href="{% url 'login_url' %}"><span>Login</span></a>
+						
 					</div>
 					
-					<!-- LOGIN -->
-					{% if page == 'login' %}
-					<form method="POST" action="{{login_url}}" id="LoginForm">
-					{% csrf_token %}
-						<input type="text" name="username" placeholder="Username">
-						<input type="password" name="password" placeholder="Password">
-						<input type="submit" class="btn" value="LOGIN"/>
-						<a href="#">Forgot password</a>
-						
-					</form>
-					
-					{% else %}
-						<form method="POST" action="{{ signup_url }}" id="SignupForm">
+				<!-- LOGIN -->
+						{% if page == 'login' %}
+						<hr id="loginLine">
+						<form method="POST" action="{{login_url}}" id="LoginForm">
 						{% csrf_token %}
-						{% for field in form %}
-
-							{{field}}
+							<input type="text" name="username" placeholder="Username">
+							<input type="password" name="password" placeholder="Password">
+							<input type="submit" class="sign-btn" value="LOGIN"/>
+							<a href="#">Forgot password</a>
+						</form>
+				<!-- SIGNUP -->
+						{% else %}
+						<hr id="signupLine">
+						<form method="POST" action="{{ signup_url }}" id="SignupForm">
+							{% csrf_token %}
+							{% for field in form %}
+								{{field}}
 							{% endfor %}
-
-							<button type="submit" class="btn">SIGNUP</button>
+							<button type="submit" class="sign-btn">REGISTER</button>
 						</form>
 					{% endif %}
 				</div>
@@ -113,6 +47,4 @@
 		</div>
 	</div>
 </div>
-
-
 {% endblock %}
