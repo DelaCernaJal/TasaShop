@@ -66,17 +66,9 @@
 	</div>
 
 </div>
+
+
 {% endcomment %}
-
-
-
-
-
-
-
-
-
-
 <div class="account-page">
 	<div class="container">
 		<div class="row">
@@ -84,8 +76,6 @@
 				<h1 class="col-2">We Take Mugs Seriously,<br>Let's Make it Personalllyy</h1>
 				<p class="col-2">hey, we also help small artist by dispalying their arts here, possible to be a mug design.<br>Are you an artist? send us your entry now!</p>
 				<a href="#" class="click"> Send Entry (arrow)</a>
-
-
 			</div>
 			
 			<div class="col-2">
@@ -94,21 +84,14 @@
 						<a href="{% url 'signup_url' %}"><span onclick="signup()">SignUp</span></a>
 						<a href="{% url 'login_url' %}"><span onclick="login()">Login</span></a>
 						<hr id="Indicator">
-
 					</div>
 					
-
-
 					<!-- LOGIN -->
 					{% if page == 'login' %}
 					<form method="POST" action="{{login_url}}" id="LoginForm">
 					{% csrf_token %}
 						<input type="text" name="username" placeholder="Username">
-						
-						
 						<input type="password" name="password" placeholder="Password">
-						
-						
 						<input type="submit" class="btn" value="LOGIN"/>
 						<a href="#">Forgot password</a>
 						
@@ -124,8 +107,6 @@
 
 							<button type="submit" class="btn">SIGNUP</button>
 						</form>
-
-
 					{% endif %}
 				</div>
 			</div>

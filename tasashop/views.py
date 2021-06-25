@@ -26,8 +26,8 @@ def shop(request):
 
 	# ordercount
 	# if request.user.is_authenticated:
-		customer = request.user
-		orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
+	customer = request.user	
+	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 	
 	return render(request, 'shop.html', {'products':products, 'orderItem': orderItem})
 
@@ -102,26 +102,6 @@ def updateCart(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @login_required(login_url='login_url')
 def cart(request):
 	if request.user.is_authenticated:
@@ -145,11 +125,18 @@ def checkout(request):
 		order = {'cart_total':0, 'cart_item':0}
 	return render(request, 'checkout.html', {'cartlist':cartlist, 'order': order})
 
+
+
 @login_required(login_url='login_url')
 def account(request):
 	customer = request.user
+
+	entry = request.GET.get('artName')
+	if entry == None:
+		userentry = Entries.objects.filter(artName=customer)
+
 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
-	return render(request, 'account.html', {'orderItem': orderItem} )
+	return render(request, 'account.html', {'orderItem': orderItem, 'userentry':userentry} )
 
 
 
@@ -201,9 +188,15 @@ def productdetails(request, pk):
 
 
 
+def design(request, pk):
+	design = Entries.objects.get(id=pk)
+	
+	# img=Entries.objects.all()
 
+	if request.method == 'POST':
+		design = Entries.objects.get(id=pk)
 
-
+	return render(request, 'cdesign.html')	
 
 
 

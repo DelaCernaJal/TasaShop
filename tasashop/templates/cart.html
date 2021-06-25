@@ -19,31 +19,42 @@
 		<br>
 		<div class="cartdetailbox">
 			<div class="cart-row tth">
-				<div style="flex:1.5"></div>
+				<div style="flex:1.3"></div>
 				<div style="flex:1"><strong>Design</strong></div>
 				<div style="flex:2"><strong>Item</strong></div>
-				<div style="flex:2"><strong>Price</strong></div>
-				<div style="flex:1.5"><strong>Quantity</strong></div>
-				<div style="flex:2.5"><strong>Total</strong></div>
+				<div style="flex:1.7"><strong>Price</strong></div>
+				<div style="flex:1.2"><strong>Quantity</strong></div>
+				<div style="flex:2.2"><strong>Total</strong></div>
 			</div>
+			
+
+
+
 			{% for cl in cartlist %}
 				<div class="cart-row">
 					<div style="flex:1.5"><img class="row-image" src="{{cl.product.imgurl}}"></div>
-					<div style="flex:1.3"><img class="row-image" src="{% static 'img/sampledesign.jpg' %}"></div>
+					
+					{% if cl.product.category == 'c' %}
+					<div style="flex:1.3"><img class="row-image" src="{{cl.entry.artFile.url}}"></div>
+					
+					{% else %}
+
+					<div style="flex:1.3"></div>
+					{% endif %}
 					<div class="row-con" style="flex:2.4">{{cl.product.name}}</div>
 					<div class="row-con" style="flex:2">Php {{cl.product.price}}</div>
 
 
-<!--dagdag order-->	<div style="flex:.4"> <img data-product="{{cl.product.id}}" data-action="add" style="margin-left:5px;" class="chg-quan row-con updateCart-Btn" src="{% static 'img/plus.png' %}"></div>
-
-<!-- QUANTITY -->	<div style="font-size: 25px; padding-top: 28px;" class="quan row-con"><span style="color: orange; font-weight: 900;">{{cl.quan}}</span></div>
-
-
-
-<!-- bawas order--> <div style="flex:1"> <img data-product="{{cl.product.id}}" data-action="minus" style="margin-left:10px;" class="chg-quan row-con updateCart-Btn" src="{% static 'img/minus.png' %}"></div>
+					<!--dagdag order-->	
+					<div style="flex:.4"> <img data-product="{{cl.product.id}}" data-action="minus" style="margin-left:5px;" class="chg-quan row-con updateCart-Btn" src="{% static 'img/minus.png' %}"></div>
+					<!-- QUANTITY -->	
+					<div style="font-size: 25px; padding-top: 28px;" class="quan row-con"><span style="color: orange; font-weight: 900;">{{cl.quan}}</span></div>
+					<!-- bawas order--> 
+					<div style="flex:1"> <img data-product="{{cl.product.id}}" data-action="add" style="margin-left:10px;" class="chg-quan row-con updateCart-Btn" src="{% static 'img/plus.png' %}"></div>
+					<!-- TOTAL -->
 					<div class="row-con" style="flex:1.7;">Php <span style="color: orange; font-weight: 900;">{{cl.total}}</span></div>
-
-<!-- bawas order--> <div style="flex:1;"> <img data-product="{{cl.product.id}}" data-action="delete" style=" margin-top:30px; width: 50px;" class="chg-quan updateCart-Btn" src="{% static 'img/remove.png' %}"></div>
+					<!-- REMOVE --> 
+					<div style="flex:1;"> <img data-product="{{cl.product.id}}" data-action="delete" style=" margin-top:30px; width: 50px;" class="chg-quan updateCart-Btn" src="{% static 'img/remove.png' %}"></div>
 
 				</div>
 			{% endfor %}

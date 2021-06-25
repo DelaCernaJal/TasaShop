@@ -11,7 +11,7 @@ urlpatterns = [
     path('account/', account, name="account"),
     path('entry/', entry, name="entry"),
 
-    
+
     path('updateCart/', updateCart, name="updateCart"),
 
 
@@ -27,7 +27,12 @@ urlpatterns = [
     path('signup/', signupUser, name='signup_url'),
     path('login/', loginUser, name='login_url'),
     
-    path('logout/', logoutUser, name='logout_url')
+    path('logout/', logoutUser, name='logout_url'),
+
+    
+
+    # path('design/', design, name='design'),
+
 
     # path("CustomerLogout/", CustomerLogout.as_view(), name="CustomerLogout"),
     # path("CustomerLogout/", CustomerLogin.as_view(), name="CustomerLogout"),

@@ -140,10 +140,12 @@ nav ul li a:hover{
 	transition: color 0.1s;
 	font-size: 24px;
 }
+
 .add-btn:hover{
 	background: #4682b4;
 	color: #ff9912;
 }
+
 .box3{
 	flex-basis: 18%;
 	padding: 1px;
@@ -546,7 +548,7 @@ nav ul li a:hover{
 
 
 /*---------------------------------------------------SIGN-UP---------------------------------------------------*/
-.user_card {
+/*.user_card {
 	width: 350px;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -730,3 +732,4 @@ form a{
 	max-width: 100%;
 	padding: 50px 0;
 }
+*/

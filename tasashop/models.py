@@ -51,6 +51,8 @@ class Product(models.Model):
 					)
 	category = models.CharField(choices=PRODUCT_LABEL,max_length=1, null=True)
 	description = models.CharField(max_length=5000, null=True)
+	
+	cdesign = models.ImageField(null=True, blank=True)
 	image = models.ImageField(null=True, blank=True)
 
 	def __str__(self):

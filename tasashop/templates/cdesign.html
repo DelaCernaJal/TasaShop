@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %} 
-	{{product.name}} 
+	DESIGN
 {% endblock %}
 
 
@@ -26,6 +26,29 @@
 		</form>
 	</div>
 </div>
+
+
+<div style="padding: 30px;" class="pdetails">
+	<div class="pbox">
+		<img style="border: solid 2px black;" class="productPic" src="{{product.imgurl}}">
+	</div>
+	<div class="pbox" >
+		<h2>{{product.name}}</h2>
+		<h4>{{product.category}}</h4>
+		<h6>PRICE: Php {{product.price}} </h6>
+		<form method="POST" action="{% url 'productdetails' product.id %}">
+			{% csrf_token %}
+			<input required type="number" name="quan" value="1" max="100" min="1">
+			<input type="submit" name="add_to_cart" class="add-btn" value="Add to Cart">
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
 
 {% else %}
 	<div style="padding: 30px;" class="pdetails">
@@ -51,7 +74,8 @@
 
 	<div class="smallcon">
 		<h2>Available Design</h2>
-		<form method="POST" action="{% url 'design' %}">
+
+		<form method="POST" action="{% url 'productdetails' product.id %}">
 			<div class="row">
 				{% for img in img %}
 				
@@ -65,9 +89,7 @@
 
 					<!-- <button class="add-btn">Use Design</button> -->
 
-					<!-- <button data-product="{{img.entries.id}}" data-action="add" class="add-btn entry-Btn">Use Design</button> -->
-					<input style="height:50px;" type="submit" name="add_to_cart" class="add-btn" value="Use Design">
-						
+					<button data-product="{{img.entries.id}}" data-action="add" class="add-btn entry-Btn">Use Design</button>		
 				</div>
 				
 				{% endfor %}
@@ -75,7 +97,6 @@
 		</form>
 	</div>
 {% endif %}
-
 
 
 {% endblock content %}

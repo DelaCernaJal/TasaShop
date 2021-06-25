@@ -20,8 +20,8 @@
     
     <script type="text/javascript">
         var user = '{{request.user}}'
-        
-        function token(name) {
+      // https://docs.djangoproject.com/en/3.2/ref/csrf/  
+        function csrf(name) {
           var cookieValue = null;
           if (document.cookie && document.cookie !== '') {
             var cookies = document.cookie.split(';');
@@ -35,11 +35,14 @@
           }
           return cookieValue;
         }
-        var csrftoken = token('csrftoken')
+        var csrftoken = csrf('csrftoken')
     </script>
 </head>
 
 <body>
+
+
+  
 <!--------------NAVBAR-------------->
   <div style="position: sticky;" class="navbar">
       <div class="logo">
@@ -102,9 +105,10 @@
         <div class="box4">
           <hr>
           <h3>About</h3>
-          <h4>############## </h4>
-          <h4>##############</h4>
-          <a href="#">######</a>
+          
+          
+          <a href="#"><h4>The Website</h4></a>
+          <a href="#"><h4>The Developer</h4></a>
         </div>
         <div class="box4">
           <hr>
@@ -140,18 +144,6 @@
 
 <script type="text/javascript">
 
-     
-
-
-
-
-
-
-
-
-
-
-
       // JS-design signup and login toggle
       var LoginForm = document.getElementById("LoginForm");
       var SignupForm = document.getElementById("SignupForm");
@@ -167,7 +159,6 @@
           LoginForm.style.transform = "translateX(350px)";
           Indicator.style.transform = "translateX(-60px)";
         }
-
 </script>
 
 </body>

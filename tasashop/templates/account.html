@@ -24,6 +24,15 @@
 						<button type="submit" class="btn">Upload</button>
 						
 					</div>
+					<div>
+						{% for item in userentry %}
+							<div>{{item.artFile.url}}</div>
+							<div>{{item.artName}}</div>
+							<div>{{item.artPrice}}</div>
+
+						{% endfor %}
+
+					</div>
 
 				</form>			
 
