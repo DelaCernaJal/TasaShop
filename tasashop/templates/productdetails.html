@@ -1,1 +1,45 @@
-productdetails
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} 
+	{{product.name}} 
+{% endblock %}
+
+{% block content %}
+
+<a class="btn" href="{% url 'shop' %}">Back to shop</a>
+
+<div style="padding: 30px;" class="pdetails">
+
+	<div class="pbox">
+		<img style="border: solid 2px black;" class="productPic" src="{{product.imgurl}}">
+	</div>
+	<div class="pbox" >
+		<h2>{{product.name}}</h2>
+		<h4>{{product.category}}</h4>
+		<h6>PRICE: Php {{product.price}} </h6>
+		<form method="POST" action="{% url 'productdetails' product.id %}">
+			{% csrf_token %}
+			<input required type="number" name="quan" value="1" max="100" min="1">
+			<input type="submit" name="add_to_cart" class="add-btn" value="Add to Cart">
+		</form>
+	</div>
+</div>
+
+{% if product.category == 'c' %}
+	<div class="smallcon">
+		<h2>Available Design</h2>
+		<div class="row">
+			{% for i in img %}
+			<div class="box3">
+				<img class="productPic" src="{{i.artFile.url}}">
+				<h4><strong>{{i.artName}}</strong></h4>
+				<p>By {{i.customer.name}} </p>
+				<p>Php {{i.artPrice}} </p>
+				<button class="add-btn">Add to Cart <i class="fa fa-shopping-cart" style="font-size:24px; color: #ff9912;"></i></button>				
+			</div>
+			{% endfor %}
+		</div>	
+	</div>
+{% endif %}
+{% endblock content %}

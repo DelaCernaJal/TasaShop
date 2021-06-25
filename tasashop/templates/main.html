@@ -2,7 +2,11 @@
 {% load static %}
 <html>
 <head>
-    <title> MUGSHOP </title>
+    <title>
+    {% block title %}
+
+    {% endblock %}
+    </title>
     <!-- bootstrap here, if meron -->
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -12,7 +16,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <!-- from https://docs.djangoproject.com/en/3.0/ref/csrf/#ajax -->
+    
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        
+        function token(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+        var csrftoken = token('csrftoken')
+    </script>
 </head>
+
 <body>
 <!--------------NAVBAR-------------->
   <div style="position: sticky;" class="navbar">
@@ -24,28 +50,33 @@
 
       <nav>
         <ul>
-          <!-- if user.is_authenticated -->
-          <li class="dropdown" >
-            <a class="dropbtn" style="font-style: italic; font-weight: 500;" href="">Username</a>
-              <div class="drop-con">
-                <a href="{% url 'account' %}">View Profile</a>
-                <a href="{% url 'account' %}">Logout</a>
-              </div>
-          </li>
-          <!-- else -->
-          <li><a href="#">Login</a></li>
+          {% if user.is_authenticated %}
+          <!-- <li class="dropdown" > -->
+            <a style="margin-left: 90px;" href="{% url 'account' %}" >{{user.username}}</a>
+              <!-- <div class="drop-con"> -->
+                <a href="{% url 'logout_url' %}">Logout</a>
+              
+          <!-- </li> -->
+          {% else %}
+          <li><a href="{% url 'login_url' %}">Login</a></li>
          
-           <!-- endif  -->
-          <li><a href="{% url 'shop' %}">Shop  </a></li>
+           {% endif  %}
+          <li><a href="{% url 'shop' %}">Shop</a></li>
         </ul>
       </nav>
 
+
+
+     
       <div class="cartbox">          
         <a href="{% url 'cart' %}">
-          <p id="cart-total" style="color: black;">{{order.cart_item}}</p>   
+           {% if user.is_authenticated %}
+           <p id="cart-total" style="color: black;">{{orderItem.cart_item}}</p> 
+           {% endif %} 
           <img id="cart-icon" src="{% static 'img/cart-icon.png' %}">
         </a>
-      </div>                          
+      </div>
+
     </div>
 <!--------------END NAVBAR-------------->
 
@@ -101,47 +132,43 @@
 <!--------------END FOOTER-------------->
 
 <!-- js -->
-      <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
-      <script type="text/javascript" src="{% static 'js/styling.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/styling.js' %}"></script>
 
-<script>
-    var Cline =  document.getElementById("Cline"); 
-    
-    function all(){
-    Cline.style.transform = "translateX(0px)";
-    }
 
-    function custo(){
-    Cline.style.transform = "translateX(-65px)";
-    }
 
-    function designed(){
-    Cline.style.transform = "translateX(100px)";
-    }
+
+<script type="text/javascript">
+
+     
+
+
+
+
+
+
+
+
+
+
+
+      // JS-design signup and login toggle
+      var LoginForm = document.getElementById("LoginForm");
+      var SignupForm = document.getElementById("SignupForm");
+      var Indicator =  document.getElementById("Indicator");
+        
+        function login(){
+          SignupForm.style.transform = "translateX(0px)";
+          LoginForm.style.transform = "translateX(0px)";
+          Indicator.style.transform = "translateX(65px)";
+        }
+        function signup(){
+          SignupForm.style.transform = "translateX(350px)";
+          LoginForm.style.transform = "translateX(350px)";
+          Indicator.style.transform = "translateX(-60px)";
+        }
+
 </script>
-
-
-
-<!-- JS signup and login toggle -->
-
-<!-- <script>
-
-    var LoginForm = document.getElementById("LoginForm");
-    var SignupForm = document.getElementById("SignupForm");
-    var Indicator =  document.getElementById("Indicator");
-      
-      function login(){
-        SignupForm.style.transform = "translateX(0px)";
-        LoginForm.style.transform = "translateX(0px)";
-        Indicator.style.transform = "translateX(65px)";
-      }
-      function signup(){
-        SignupForm.style.transform = "translateX(350px)";
-        LoginForm.style.transform = "translateX(350px)";
-        Indicator.style.transform = "translateX(-60px)";
-      }
-
-    </script> -->
 
 </body>
 </html>

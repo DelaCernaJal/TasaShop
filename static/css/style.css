@@ -7,7 +7,7 @@ a{
 	text-decoration: none;
 }
 
-/*NAVBAR*/
+/*---------------------------------------------------NAVBAR---------------------------------------------------*/
 .navbar{
 	background-color: #1167b1;
 	display: flex;
@@ -46,7 +46,7 @@ nav ul li a:hover{
 	margin-left: 15px;
 }
 
-/*NAVBAR-dropdown*/
+/*---------------------------------------------------NAVBAR-dropdown---------------------------------------------------*/
 .dropdown {
   float: left;
   padding-right: 85px;
@@ -61,7 +61,6 @@ nav ul li a:hover{
 .dropbtn:hover {
   color: orange;
 }
-
 
 .drop-con {
   display: none;
@@ -112,9 +111,9 @@ nav ul li a:hover{
 	border-radius: 45%;
 	font-size: 14px;
 }
-/*END-NAVBAR*/
+/*---------------------------------------------------END-NAVBAR---------------------------------------------------*/
 
-/*SHOP*/
+/*---------------------------------------------------SHOP---------------------------------------------------*/
 .box{
 	align-items: center;
 	margin: auto;
@@ -180,17 +179,14 @@ nav ul li a:hover{
 	margin: 30px 0 0 0;
 	padding: 10px
 }
-
 .sort_category ul li{
 	display: block;
-	/*margin-right: 20px;*/
 }
 .sort_category ul{
 	font-size: 20px;
 	display: inline-block;
 	list-style-type: none;
 }
-
 
 #Cline{
 	width: 200px;
@@ -214,12 +210,69 @@ nav ul li a:hover{
 	text-decoration: none;
 	color: orange;
 }
+/*---------------------------------------------------END-SHOP---------------------------------------------------*/
 
 
 
-/*END-SHOP*/
 
-/*CART*/
+
+/*---------------------------------------------------PRODUCT DETAILS---------------------------------------------------*/
+.pdetails {
+	margin: 30px auto;
+	max-width: 1020px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.pbox{
+	flex-basis: 18%;
+	padding: 10px;
+	min-width: 50%;
+}
+.pbox h2{
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+}
+.pbox p{
+	max-width: 70%;
+	justify-content: right;
+}
+.pbox h6{
+	font-weight: 400;
+	font-size: 20px;
+	margin: 0;
+	margin-bottom: 20px;
+	padding: -3px;
+}
+.pbox input {
+	padding: 10px;
+	max-width: 100px;
+	padding: 10px;
+	border-radius: 4px;
+	font-size: 24px;
+	font-weight: 400;
+	border: 1px #1167b1 solid;
+} 
+.pbox input:hover{
+	border: 1px orange solid;
+}
+.pbox .add-btn {
+	flex-basis: 18%;
+	padding: 10px;
+	max-width: 45%;
+	border: solid 1px orange;
+	transition: background .7s;
+} 
+.productPic{
+	width: 100%;
+	height: 350px;
+}
+/*---------------------------------------------------END - PRODUCT DETAILS---------------------------------------------------*/
+
+
+
+/*---------------------------------------------------CART---------------------------------------------------*/
 .cartdetailcon{
 	margin-top: 10px;
 	min-height: 600px;
@@ -250,7 +303,6 @@ nav ul li a:hover{
 }
 .cart-row{
 	display: flex;
-    /*align-items: flex-stretch;*/
     padding-bottom: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ececec;
@@ -258,33 +310,37 @@ nav ul li a:hover{
 .cart-row .row-con{
 	padding-top: 35px;
 }
+
+.tth{
+	background-color: orange;
+	padding: 10px 0;
+}
 .row-image{
 	width: 100px;
 	height: 100px;
 }
 .quan{
-	max-width: 20px;
+	max-width: 100px;
 	font-weight: 700;
 	padding: 0;
 }
 
 .chg-quan{
-	width: 10px;
+	width: 25px;
 	cursor: pointer;
-	/*flex-wrap: wrap;*/
 	margin-top: 5px;
 	transition:.1s;
 }
 .chg-quan:hover{
 	opacity: .6;
 }
-/*END-CART*/
+/*---------------------------------------------------END-CART---------------------------------------------------*/
 
 
 
 
 
-/*CHECKOUT*/
+/*---------------------------------------------------CHECKOUT---------------------------------------------------*/
 .checkoutDetails{
 	/*display: block;*/
 	flex-wrap: wrap;
@@ -319,12 +375,12 @@ nav ul li a:hover{
 
 }
 
-/*END-CHECKOUT*/
+/*---------------------------------------------------END-CHECKOUT---------------------------------------------------*/
 
 
 
 
-/*FOOTER*/
+/*---------------------------------------------------FOOTER---------------------------------------------------*/
 .footer{
 	background-color: #1167b1;
 	color: white;
@@ -374,7 +430,7 @@ nav ul li a:hover{
 .box4 hr{
 	color: #8fd3fe;
 }
-/*END-FOOTER*/
+/*---------------------------------------------------END-FOOTER---------------------------------------------------*/
 
 
 
@@ -405,3 +461,272 @@ nav ul li a:hover{
 
 /*-------------------for footer, social media icons-------------------*/
 /*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_social_media_buttons*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------------LOGIN---------------------------------------------------*/
+.user_card {
+	width: 350px;
+	margin-top: auto;
+	margin-bottom: auto;
+	background: #74cfbf;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
+}
+
+.form_container {
+	margin-top: 20px;
+}
+
+#form-title{
+	color: #fff;
+	
+}
+
+.login_btn {
+	width: 100%;
+	background: #33ccff !important;
+	color: white !important;
+}
+.login_btn:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
+.login_container {
+	padding: 0 2rem;
+}
+.input-group-text {
+	background: #f7ba5b !important;
+	color: white !important;
+	border: 0 !important;
+	border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
+
+#messages{
+	background-color: grey;
+	color: #fff;
+	padding: 10px;
+	margin-top: 10px;
+}
+/*---------------------------------------------------END-LOGIN---------------------------------------------------*/
+
+
+/*---------------------------------------------------SIGN-UP---------------------------------------------------*/
+.user_card {
+	width: 350px;
+	margin-top: auto;
+	margin-bottom: auto;
+	background: #74cfbf;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
+
+}
+
+.form_container {
+	margin-top: 20px;
+}
+
+#form-title{
+	color: #fff;
+}
+.login_btn {
+	width: 100%;
+	background: #33ccff !important;
+	color: white !important;
+}
+.login_btn:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
+.login_container {
+	padding: 0 2rem;
+}
+.input-group-text {
+	background: #f7ba5b !important;
+	color: white !important;
+	border: 0 !important;
+	border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
+
+/*---------------------------------------------------END-SIGN-UP---------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.account-page{
+	padding: 50px 0;
+	background: radial-gradient(white, lightblue);
+}
+
+.form-container{
+	background: white;
+	width: 350px;
+	height: 400px;
+	position: relative;
+	text-align: center;
+	padding: 20px 0;
+	margin: auto;
+	box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+	/*overflow: hidden;*/
+}
+
+.form-container span{
+	font-weight: bold;
+	padding: 0 10px;
+	color: #555;
+	cursor: pointer;
+	width: 100px;
+	display: inline-block;
+}
+
+.form-container form{
+	max-width: 300px;
+	padding: 0 20px;
+	position: absolute;
+	/*top: 130px;*/
+	transition: transform 1s;
+	margin: 2px;
+	display: inline-block;
+}
+
+.form-container form input{
+	max-width: 90%;
+}
+
+.form-btn{
+	display: inline-block;
+}
+
+form input{
+	width: 100%;
+	height: 30px;
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+
+form .btn{
+	width: 100%;
+	border: none;
+	cursor: pointer;
+	margin: 10px 0;
+	background-color: blue;
+}
+
+form .btn:focus{
+	outline: none;
+}
+
+#LoginForm{
+	left: 0;
+	top: 130px;
+
+}
+
+#SignupForm{
+	left: -350px;
+	top: 95px;
+	
+}
+
+form a{
+	font-size: 12px;
+}
+
+#Indicator{
+	width: 100px;
+	border: none;
+	background: blue;
+	height: 3px;
+	margin-top: 8px;
+	transform: translateX(60px);
+	transition: transform 1s;
+}
+
+
+.container{
+	max-width: 1300px;
+	margin: auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.row{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.col-2{
+	flex-basis: 50%;
+	min-width: 300px;
+}
+
+.col-2 img{
+	width: 50%;
+	height: 50%;
+	margin-top: 0;
+	max-width: 100%;
+	padding: 50px 0;
+}

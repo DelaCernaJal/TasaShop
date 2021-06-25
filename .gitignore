@@ -2,3 +2,4 @@
 *.pot
 *.pyc
 __pycache__/
+*.pyc/*.cmake/*.DS_Store/.user

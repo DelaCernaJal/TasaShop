@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="acountcontainer">
+	<dir class="container">
+		<h1>ENTRY</h1>
+		<h1>HA HA HA HA HA </h1>
+		<div class="header-row">
+			<div style="border: 1px solid red" class="col-2">
+				<p>send us design, let customer buy your design for our customizable mugs</p>
+ 
+
+				<form method="POST" action="." enctype="multipart/form-data">
+				{% csrf_token %}
+
+					{{form.as_p}} 
+
+
+					<div>
+						<button type="submit" class="btn">Upload</button>
+						
+					</div>
+
+				</form>			
+
+			</div> 
+		</div>
+	</dir>
+</div>
+{% endblock %}

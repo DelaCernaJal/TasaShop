@@ -2,33 +2,89 @@
 {% load static %}
 
 {% block content %}
+
+
+
 <div class="acountcontainer">
 	<dir class="container">
+		<h1>ENTRY</h1>
+		<h1>HA HA HA HA HA </h1>
 		<div class="header-row">
-			<div class="col-2">
-				<h1>Hi, {{user.username}}</h1>
+			<div style="border: 1px solid red" class="col-2">
 				<p>send us design, let customer buy your design for our customizable mugs</p>
-				<a href="#" class="click"> Send Entry (arrow)</a>
-			</div>
-			<div class="col-2">
-				<div>
-					<h1>Your Entries</h1>
-					<hr>
-					<h4>title</h4>
-					<p>Price: 200</p>
-					<a href="#" class="click"> Add More Entries</a>
-				</div>
+ 
 
-				<div>
-					<h1>You do not have entries yet</h1>
-					<hr>
-					<h4>title</h4>
-					<p>Price: 200</p>
-					<a href="#" class="click"> Add More Entries</a>
-				</div>
+				<form method="POST" action="." enctype="multipart/form-data">
+				{% csrf_token %}
 
-			</div>
+					{{form.as_p}} 
+
+
+					<div>
+						<button type="submit" class="btn">Upload</button>
+						
+					</div>
+
+				</form>			
+
+			</div> 
 		</div>
+	</dir>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="acountcontainer">
+
+	
+	<dir class="container">
+		<div class="header-row">
+			<div style="border: 1px solid red" class="col-2">
+				<h1>{{user.username}}</h1>
+			</div>
+
+		</div> 
+
+
+
+		<div>
+		{% for x in img %} 
+			<div class="row "> 
+				<div class="col-lg-4 col-md-4 col-12" > 
+					<div class="text-center mt-2"> 
+						<img src="{{x.artFile.url}}" height="70%" width="70%" class="img-thumbnail" alt="..."> 
+						
+						<h2 class="text-center" >{{x.artName}}</h2>
+						<h2 class="text-center" >{{x.artPrice}}</h2>
+					</div> 
+				</div> 
+			</div> 
+		</div>
+
+
+		{% empty %}
+
+			<div style="border: 1px solid red" class="col-2">
+				<p>send us design, let customer buy your design for our customizable mugs</p>
+				<a href="{% url 'entry' %}" class="btn"> Send Entry &#8594;</a>
+			</div>
+			
+		{% endfor %}
+
+		<div style="border: 1px solid red" class="col-2">
+					<a href="{% url 'entry' %}" class="btn"> SUBMIT ANOTHER&#8594;</a>
+			</div>
 	</dir>
 </div>
 {% endblock %}
