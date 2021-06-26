@@ -29,44 +29,59 @@
 
 	{% else %}
 		<div style="padding: 30px;" class="pdetails">
-			<div class="pbox">
-				<img style="border: solid 2px black;" class="productPic" src="{{product.imgurl}}">
+			<div style="box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="pbox">
+				<img class="productPic" src="{{product.imgurl}}">
 			</div>
 			<div class="pbox" >
-				<h2>{{product.name}}</h2>
-				<h4>{{product.category}}</h4>
+				<h2 style="font-weight: 600; color: #1167b1;">{{product.name}}</h2>
 				<h6>PRICE: Php {{product.price}} </h6>
 				<form method="POST" action="{% url 'productdetails' product.id %}">
 					{% csrf_token %}
-					<input required type="number" name="quan" value="1" max="100" min="1">
-					
-					<input type="file" id="cdesign" name="cdesign" accept="image/*">
-					
-					<div class="pbox">
-						<input  style="height:100px;" type="submit" name="add_to_cart" class="add-btn" value="Add to Cart">
-					</div>
+					<label>Quantity:</label><br>
+					<input required type="number" name="quan" value="1" max="100" min="1"><br>
+					<label>Design:</label><br>
+					<input type="number" name="Design" value="1" max="100" min="0"><br>
+					<input type="file" id="cdesign" name="cdesign" accept="image/*"><br>
+					<input type="submit" name="add_to_cart" class="add-btn" value="Add to Cart">					
 				</form>
 			</div>
 		</div>
+		<hr>
 
+		
 		<div class="smallcon">
-			<h2>Available Design</h2>
-			<form method="POST" action="{% url 'cdesign' %}">
-				<div class="row">
-					{% for img in img %}
-					<div class="box3">
-						<img class="productPic" src="{{img.artFile.url}}">
-						<h4><strong>{{img.artName}}</strong></h4>
-						<p>By {{img.customer.user}} </p>
-						<p>Php {{img.artPrice}} </p>
-						<!-- <button class="add-btn">Use Design</button> -->
-						<!-- <button data-product="{{img.entries.id}}" data-action="add" class="add-btn entry-Btn">Use Design</button> -->
-						<input style="height:50px;" type="submit" name="add_to_cart" class="add-btn" value="Use Design">
-					</div>
-					{% endfor %}
+			<h2 style="text-align: center; color: orange; font-weight: 500;">Available Design</h2>
+			<div class="row">
+				{% for img in img %}
+				<div class="box3">
+					<img style="height: 200px; width: 195px;" class="productPic" src="{{img.artFile.url}}">
+					<h3 style="font-weight: 500;">Design no.<span style="color: #1167b1; font-weight: 600;">{{img.id}}</span></h3>
+					<h4><strong>{{img.artName}}</strong></h4>
+					<p>By {{img.artBy}} || {{img.artPrice}}php </p>
 				</div>
-			</form>
+				{% endfor %}
+			</div>
 		</div>
+		
 	{% endif %}
 </div>
 {% endblock content %}
+
+<!-- <input type="hidden" name="cdesign" id="{{img.id}}" value="{{img.Entries.artName}}" > -->
+<!-- <input data-product={{img.id}} style="height:50px;" type="submit" name="add_to_cart" class="add-btn designBtn" value="Use Design"> -->
+<!-- <button class="add-btn">Use Design</button> -->
+						<!-- <button data-product="{{img.entries.id}}" data-action="add" class="add-btn entry-Btn">Use Design</button> -->
+
+<!-- 
+<input required type="number" name="quan" value="1" max="100" min="1">
+
+<input style="height:50px;" type="submit" class="add-btn" value="Use Design"> -->
+
+<!-- 		
+					<input required type="number" name="quan" value="1" max="100" min="1">
+					
+					<input type="file" id="cdesign" name="cdesign" accept="image/*">
+					<div class="pbox">
+					</div>
+					<div class="pbox">
+					</div> -->

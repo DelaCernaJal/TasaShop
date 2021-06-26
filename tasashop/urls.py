@@ -10,32 +10,15 @@ urlpatterns = [
     path('checkout/', checkout, name="checkout"),
     path('account/', account, name="account"),
     path('entry/', entry, name="entry"),
-
-
     path('updateCart/', updateCart, name="updateCart"),
-
-
-
-
     path('productdetails/<str:pk>/', productdetails, name="productdetails"),
-
-
-    # path("register/", registerUser, name="register"),
-
-    
-
     path('signup/', signupUser, name='signup_url'),
     path('login/', loginUser, name='login_url'),
     path('logout/', logoutUser, name='logout_url'),
-
-    
-
-    path('cdesign/', cdesign, name='cdesign'),
+    # path('cdesign/<str:pk>/', cdesign, name='cdesign'),
 
 
     # path("CustomerLogout/", CustomerLogout.as_view(), name="CustomerLogout"),
     # path("CustomerLogout/", CustomerLogin.as_view(), name="CustomerLogout"),
-
-
-
+    # path("register/", registerUser, name="register"),
 ]

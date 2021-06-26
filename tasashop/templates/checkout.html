@@ -12,64 +12,42 @@
 <div class="box">
 	<div class="checkoutDetails">
 		<div class="shippingdetails">
-			<h2>SHIPPING DETAILS</h2>
+			<h2 style="color: #1167b1; font-weight: 600;">SHIPPING DETAILS</h2>
 			<hr>
-			<br>
-			<br>
-			<table class="table">
-				<tr>
-					<th><h5>Items: <strong>4</strong></h5></th>
-					<th><h5>Total: <strong>Php 400</strong></h5></th>
-					<th>
-						<a style="float:right; margin: 5px;" class="btn" href="{% url 'checkout' %}">Checkout</a>
-					</th>
-				</tr>
-			</table>
-
-
-			<hr>
-			<br>
-			<br>
-			<table class="table">
-				<tr>
-					<th><h5>Items: <strong>4</strong></h5></th>
-					<th><h5>Total: <strong>Php 400</strong></h5></th>
-					<th>
-						<a style="float:right; margin: 5px;" class="btn" href="{% url 'checkout' %}">Checkout</a>
-					</th>
-				</tr>
-			</table>
-
-
-			<table class="table">
-				<tr>
-					<th><h5>Items: <strong>4</strong></h5></th>
-					<th><h5>Total: <strong>Php 400</strong></h5></th>
-					<th>
-						<a style="float:right; margin: 5px;" class="btn" href="{% url 'checkout' %}">Checkout</a>
-					</th>
-				</tr>
-			</table>
-
+			<form>
+				<label style="color: orange; font-size: 20px">ADDRESS</label>
+				<input type="text" name="Home address" placeholder="Home address">
+				<input type="text" name="Zip Code" placeholder="Zip Code">
+				<input type="text" name="Barangay" placeholder="Barangay">
+				<input type="text" name="Municipality" placeholder="Municipality">
+				
+				<input type="text" name="Phonenumber" placeholder="Mobile Number"><br>
+				<label style="color: orange; font-size: 20px" >Mode Of Payment:</label><br>
+				<select>
+					<option>COD</option>
+					<option>GCASH</option>
+					<option>Credit Card</option>
+					<option>Linked Bank Account</option>
+				</select>
+			</form>
 
 		</div>
 
 		<div class="cartsummarybox">
-			<h2>ORDER SUMMARY</h2>
+			<h2 style="color: #1167b1; font-weight: 600;">ORDER SUMMARY</h2>
 			{% for cl in cartlist %}
 				<div class="cart-row">
-					<div style="flex:2"><img class="row-image" src="{{cl.product.imgurl}}"></div>
-					<div style="flex:2"><img class="row-image" src="{% static 'img/sampledesign.jpg' %}"></div>
 					<div style="flex:3">{{cl.product.name}}</div>
 					<div style="flex:2">Php {{cl.product.price}}</div>
-					<div style="flex:2">x{{cl.quan}}</div>
+					<div style="flex:1">x{{cl.quan}}</div>
+					<div style="flex:2"><span style="color: orange; font-weight: 600">{{cl.total}}</span></div>
 				</div>
 			{% endfor %}
 			<hr>
 			<table class="table">
 				<tr>
-					<th><h5>Items: <strong style="color: orange;">{{order.cart_item}}</strong></h5></th>
-					<th><h5>Total: <strong style="color: orange;">Php {{order.cart_total}}</strong></h5></th>
+					<th><h5>Items: <strong style="color: orange; font-size: 20px">{{order.cart_item}}</strong></h5></th>
+					<th><h5>Total: <strong style="color: orange; font-size: 20px">Php {{order.cart_total}}</strong></h5></th>
 					<br>
 					<th><a style="float:right; margin: 5px;" class="btn" href="{% url 'checkout' %}">Place Order</a></th>
 				</tr>
@@ -77,5 +55,4 @@
 		</div>
 	</div>
 </div>
-
 {% endblock %}

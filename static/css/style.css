@@ -1,6 +1,8 @@
 /*GLOBAL*/
 body{
+	min-width: 800px;
 	font-family: 'Poppins', sans-serif;
+	text-decoration: ;
 }
 
 a{
@@ -47,7 +49,6 @@ nav ul li a:hover{
 	display: inline-block;
 	margin-left: 15px;
 }
-
 
 .cartbox{
 	margin: 0 40px;
@@ -137,25 +138,6 @@ nav ul li a:hover{
 	box-shadow: 0px 1px 8px #1167b1;
 }
 
-
-/*.sort_category{
-	background-color: red;
-	border: 1px solid black;
-	float: left;
-	max-width: 30%;
-	margin: 30px 0 0 0;
-	padding: 10px
-}
-
-.sort_category ul li{
-	display: block;
-}
-.sort_category ul{
-	font-size: 20px;
-	display: inline-block;
-	list-style-type: none;
-}*/
-
 #Cline{
 	width: 100px;
 	border: none;
@@ -163,7 +145,6 @@ nav ul li a:hover{
 	height: 3px;
 	margin: 0 2px 2px 20px;
 	transform: translateX(1360px);
-	/*transition: transform 1s;*/
 }
 
 .category{
@@ -179,7 +160,6 @@ nav ul li a:hover{
 }
 
 .category a:hover{
-	/*background-color: red;*/
 	color: orange;
 	font-weight: 500;
 }
@@ -189,7 +169,7 @@ nav ul li a:hover{
 
 
 
-/*---------------------------------------------------PRODUCT DETAILS---------------------------------------------------*/
+/*---------------------------------------------------PRODUCT-DETAILS---------------------------------------------------*/
 .pdetails {
 	margin: 30px auto;
 	max-width: 1020px;
@@ -201,7 +181,6 @@ nav ul li a:hover{
 	flex-basis: 18%;
 	padding: 10px;
 	min-width: 50%;
-	/*height: 400px;*/
 }
 .pbox h2{
 	font-weight: 400;
@@ -220,8 +199,8 @@ nav ul li a:hover{
 	padding: -3px;
 }
 .pbox input {
-	padding: 10px;
-	max-width: 100px;
+	padding: 5px;
+	max-width: 200px;
 	padding: 10px;
 	border-radius: 4px;
 	font-size: 24px;
@@ -243,7 +222,7 @@ nav ul li a:hover{
 	width: 100%;
 	height: 390px;
 }
-/*---------------------------------------------------END - PRODUCT DETAILS---------------------------------------------------*/
+/*---------------------------------------------------END-PRODUCT DETAILS---------------------------------------------------*/
 
 
 
@@ -321,21 +300,15 @@ nav ul li a:hover{
 
 /*---------------------------------------------------CHECKOUT---------------------------------------------------*/
 .checkoutDetails{
-	/*display: block;*/
 	flex-wrap: wrap;
 	width: 100%;
-	/*background-color: red;*/
 	padding: 10px;
 	min-height: 600px;
-
-
 }
 
 .shippingdetails{
 	display: inline-block;
-	/*background-color: pink;*/
 	margin-top: 0;
-	/*margin: 20px 5px;*/
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	width: 58%;
 	padding: 20px 10px 10px 10px;
@@ -343,186 +316,16 @@ nav ul li a:hover{
 
 .cartsummarybox{
 	display: inline-block;
-	/*background-color: green;*/
 	width: 38%;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	margin-left: 20px;
 	margin-top: 0;
 	position: fixed;
-
 	padding: 20px 10px 10px 10px;
-
 }
-
 /*---------------------------------------------------END-CHECKOUT---------------------------------------------------*/
 
-
-
-
-/*---------------------------------------------------FOOTER---------------------------------------------------*/
-.footer{
-	background-color: #1167b1;
-	color: white;
-	padding: 2px;
-
-}
-.row{
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	margin-top: 1px;
-}
-.box4{
-	flex-basis: 20%;
-	color: black;
-	font-size: 15px;
-	margin-top: 0;
-	padding-top: 0;
-}
-.box4 h1{
-	margin: 5px;	
-	padding: 5px;	
-}
-
-.box4 h3, h4, a{
-	padding: 0;
-	margin: 0;
-}
-
-.box4 h4{
-	font-size: 14px;
-	font-weight: normal;
-}
-
-.box4 a{
-	text-decoration: none;
-	color: black;
-}
-
-.box4 h3{
-	color: white;
-}
-
-.box4 img{
-	width: 100%;
-}
-
-.box4 hr{
-	color: #8fd3fe;
-}
-/*---------------------------------------------------END-FOOTER---------------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*-------------------ENTITY CODE-------------------*/
-/*https://entitycode.com/#common-content*/
-
-
-/*-------------------for footer, social media icons-------------------*/
-/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_social_media_buttons*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*---------------------------------------------------LOGIN---------------------------------------------------*/
-
-/*---------------------------------------------------END-LOGIN---------------------------------------------------*/
-
-
 /*---------------------------------------------------SIGN-UP---------------------------------------------------*/
-/*.user_card {
-	width: 350px;
-	margin-top: auto;
-	margin-bottom: auto;
-	background: #74cfbf;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	padding: 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 5px;
-
-}
-
-.form_container {
-	margin-top: 20px;
-}
-
-#form-title{
-	color: #fff;
-}
-.login_btn {
-	width: 100%;
-	background: #33ccff !important;
-	color: white !important;
-}
-.login_btn:focus {
-	box-shadow: none !important;
-	outline: 0px !important;
-}
-.login_container {
-	padding: 0 2rem;
-}
-.input-group-text {
-	background: #f7ba5b !important;
-	color: white !important;
-	border: 0 !important;
-	border-radius: 0.25rem 0 0 0.25rem !important;
-}
-.input_user,
-.input_pass:focus {
-	box-shadow: none !important;
-	outline: 0px !important;
-}
-
-/*---------------------------------------------------END-SIGN-UP---------------------------------------------------*/
-
 
 .account-page{
 	padding: 50px 0;
@@ -593,12 +396,6 @@ form .sign-btn:hover{
 	background-color: #3895d3;
 }
 
-
-
-
-
-
-
 #LoginForm{
 	left: 0;
 	top: 130px;
@@ -662,3 +459,112 @@ form a{
 	max-width: 100%;
 	padding: 50px 0;
 }
+
+/*---------------------------------------------------END-SIGN-UP---------------------------------------------------*/
+
+
+
+
+/*---------------------------------------------------ACCOUNT---------------------------------------------------*/
+
+.entrydetails{
+	display: inline-block;
+	margin-left:650px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	width: 58%;
+	padding: 20px 10px 10px 10px;
+	min-height: 600px;
+}
+
+.box2{
+	margin-left: 5%;
+	width: 30%;
+	float: left;
+	background-color: blue;
+	position: relative;
+	margin-bottom: 50px;
+}
+
+/*---------------------------------------------------END-ACCOUNT---------------------------------------------------*/
+
+/*---------------------------------------------------SHIPPING-DETAILS---------------------------------------------------*/
+
+.shippingdetails form input{
+	width: 90%;
+	height: 30px;
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+
+.shippingdetails select{
+	width: 93%;
+	height: 30px;
+	margin: 10px 0;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+}
+
+/*---------------------------------------------------END-SHIPPING-DETAILS---------------------------------------------------*/
+
+
+/*---------------------------------------------------FOOTER---------------------------------------------------*/
+.footer{
+	background-color: #1167b1;
+	color: white;
+	padding: 2px;
+
+}
+.row{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-top: 1px;
+}
+.box4{
+	flex-basis: 20%;
+	color: black;
+	font-size: 15px;
+	margin-top: 0;
+	padding-top: 0;
+}
+.box4 h1{
+	margin: 5px;	
+	padding: 5px;	
+}
+
+.box4 h3, h4, a{
+	padding: 0;
+	margin: 0;
+}
+
+.box4 h4{
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.box4 a{
+	text-decoration: none;
+	color: black;
+}
+
+.box4 h3{
+	color: white;
+}
+
+.box4 img{
+	width: 100%;
+}
+
+.box4 hr{
+	color: #8fd3fe;
+}
+/*---------------------------------------------------END-FOOTER---------------------------------------------------*/
+
+
+/*-------------------ENTITY CODE-------------------*/
+/*https://entitycode.com/#common-content*/
+
+/*-------------------for footer, social media icons-------------------*/
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_social_media_buttons*/

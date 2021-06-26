@@ -39,7 +39,7 @@ class Entries(models.Model):
 	artFile = models.ImageField(null=True, blank=True)
 	
 	def __str__(self):
-		return self.artBy
+		return self.artName
 
 class Product(models.Model):
 	name = models.CharField(max_length=200, null=True)
@@ -50,8 +50,6 @@ class Product(models.Model):
 					)
 	category = models.CharField(choices=PRODUCT_LABEL,max_length=1, null=True)
 	description = models.CharField(max_length=5000, null=True)
-	
-	cdesign = models.ImageField(null=True, blank=True)
 	image = models.ImageField(null=True, blank=True)
 
 	def __str__(self):
@@ -87,10 +85,11 @@ class OrderTrans(models.Model):
 
 
 class CartItem(models.Model):
-	# customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+	customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 	product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
 	order = models.ForeignKey(OrderTrans, on_delete=models.SET_NULL, null=True)
 	quan = models.IntegerField(default=0, null=True, blank=True)
+	cdesign = models.ForeignKey(Entries, on_delete=models.SET_NULL, null=True)
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	@property
@@ -103,8 +102,6 @@ class Shipping(models.Model):
 	order = models.ForeignKey(OrderTrans, on_delete=models.SET_NULL, null=True)
 	address = models.CharField(max_length=200, null=False)
 	date_added = models.DateTimeField(auto_now_add=True)
-
-
 
 # class Registre(models.Model):
 	# user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)

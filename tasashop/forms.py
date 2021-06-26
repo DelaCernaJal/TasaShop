@@ -2,8 +2,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-
-from .models import *
+from .models import Entries
 
 
 
@@ -11,20 +10,10 @@ from .models import *
 # 	pass
 
 
-# class registrationFrms(forms.ModelForm):
-# 	username = forms.CharField(widget=forms.TextInput())
-# 	password = forms.CharField(widget=forms.PasswordInput())
-# 	email = forms.CharField(widget=forms.EmailInput())
-# 	class meta:
-# 		model = Customer
-# 		fields = ['username','password','email', 'Fname', 'Lname', 'address']
-
-
 class EntryForm(forms.ModelForm): 
 	class Meta: 
 		model = Entries 
-		fields = ('artPrice','artName','artFile','artGcash',)
-
+		fields = ['artPrice','artName','artFile','artGcash',]
 
 
 class UserLoginForm(UserCreationForm): 
@@ -40,19 +29,10 @@ class UserLoginForm(UserCreationForm):
 		self.fields['password2'].widget.attrs.update({'class':'class-here', 'placeholder': 'Confirm Password'})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+# class cosdesign(forms.ModelForm): 
+# 	class Meta: 
+# 		model = CartItem 
+# 		fields = ['cdesign', 'quan']
 
 
 # class CustomerForm(forms.ModelForm):

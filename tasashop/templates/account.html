@@ -1,99 +1,41 @@
 {% extends 'main.html' %}
 {% load static %}
 
+{% block title %} 
+	Account
+{% endblock %}
+
 {% block content %}
 
 
-
-<div class="acountcontainer">
-	<dir class="container">
-		<h1>ENTRY</h1>
-		<h1>HA HA HA HA HA </h1>
-		<div class="header-row">
-			<div style="border: 1px solid red" class="col-2">
-				<p>send us design, let customer buy your design for our customizable mugs</p>
- 
-
-				<form method="POST" action="." enctype="multipart/form-data">
-				{% csrf_token %}
-
-					{{form.as_p}} 
-
-
-					<div>
-						<button type="submit" class="btn">Upload</button>
-						
-					</div>
-					<div>
-						{% for item in userentry %}
-							<div>{{item.artFile.url}}</div>
-							<div>{{item.artName}}</div>
-							<div>{{item.artPrice}}</div>
-
-						{% endfor %}
-
-					</div>
-
-				</form>			
-
-			</div> 
+<div style="margin-top: 20px; background: white;" class="cartsummarybox">
+	<h2 style="color: #1167b1; font-weight: 600;">Hi, {{user.username}}</h2>
+	<div class="cart-row">
+		<div>
+			<p>send us design, let customer buy your design for our customizable mugs</p>
+			<a href="{% url 'entry' %}" class="btn"> Send Entry &#8594;</a>
 		</div>
-	</dir>
+	</div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="acountcontainer">
-
-	
-	<dir class="container">
-		<div class="header-row">
-			<div style="border: 1px solid red" class="col-2">
-				<h1>{{user.username}}</h1>
+<div class="box">
+	<div class="checkoutDetails">
+		<div class="entrydetails">
+			<h2 style="color: #1167b1; font-weight: 600;">YOUR ENTRIES..</h2>
+			<div class="smallcon">
+				<div class="row">
+					{% for img in img %}
+					<div class="box3">
+						<img style="height: 200px; width: 195px;" class="productPic" src="{{img.artFile.url}}">
+						<h3 style="font-weight: 500;">Design no.<span style="color: #1167b1; font-weight: 600;">{{img.id}}</span></h3>
+						<h4><strong>{{img.artName}}</strong></h4>
+						<p>By {{img.artBy}} || {{img.artPrice}}php </p>
+					</div>
+					{% endfor %}
+				</div>
 			</div>
-
-		</div> 
-
-
-
-		<div>
-		{% for x in img %} 
-			<div class="row "> 
-				<div class="col-lg-4 col-md-4 col-12" > 
-					<div class="text-center mt-2"> 
-						<img src="{{x.artFile.url}}" height="70%" width="70%" class="img-thumbnail" alt="..."> 
-						
-						<h2 class="text-center" >{{x.artName}}</h2>
-						<h2 class="text-center" >{{x.artPrice}}</h2>
-					</div> 
-				</div> 
-			</div> 
 		</div>
-
-
-		{% empty %}
-
-			<div style="border: 1px solid red" class="col-2">
-				<p>send us design, let customer buy your design for our customizable mugs</p>
-				<a href="{% url 'entry' %}" class="btn"> Send Entry &#8594;</a>
-			</div>
-			
-		{% endfor %}
-
-		<div style="border: 1px solid red" class="col-2">
-					<a href="{% url 'entry' %}" class="btn"> SUBMIT ANOTHER&#8594;</a>
-			</div>
-	</dir>
+	</div>
 </div>
 {% endblock %}

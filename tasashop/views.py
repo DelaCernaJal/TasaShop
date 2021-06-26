@@ -108,10 +108,11 @@ def cart(request):
 		customer = request.user
 		order, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 		cartlist = order.cartitem_set.all()
+		img=Entries.objects.all()
 	
 	customer = request.user
 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
-	return render(request, 'cart.html', {'cartlist':cartlist, 'orderItem': orderItem})
+	return render(request, 'cart.html', {'cartlist':cartlist,'img':img, 'orderItem': orderItem})
 
 
 @login_required(login_url='login_url')
@@ -120,10 +121,10 @@ def checkout(request):
 		customer = request.user
 		order, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 		cartlist = order.cartitem_set.all()
-	else:
-		cartlist = []
-		order = {'cart_total':0, 'cart_item':0}
-	return render(request, 'checkout.html', {'cartlist':cartlist, 'order': order})
+	
+	customer = request.user
+	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
+	return render(request, 'checkout.html', {'orderItem': orderItem,'cartlist':cartlist, 'order': order})
 
 
 
@@ -170,13 +171,22 @@ def productdetails(request, pk):
 	product = Product.objects.get(id=pk)
 	img=Entries.objects.all()
 
+
+
 	if request.method == 'POST':
+
+
 		product = Product.objects.get(id=pk)
-		customer = request.user	
+		# product = .objects.get(id=pk)
+		customer = request.user
+		# artFile=request.POST['cdesign']
 		
 		orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 		cartItem, created = CartItem.objects.get_or_create(order=orderItem, product=product)
-		cartItem.quan=request.POST['quan']
+		# cartItem = Entries_set.all(artFile=artFile)
+
+		cartItem.quan = request.POST['quan']
+		# cartItem.cdesign = request.POST['cdesign']
 		cartItem.save()
 
 		return redirect('cart')
@@ -188,25 +198,38 @@ def productdetails(request, pk):
 
 
 
-def cdesign(request, pk):
-	cdesign = Entries.objects.get(id=pk)
+
+# @login_required(login_url='login_url')
+# def cdesign(request, pk):
+# 	# product = Product.objects.get(id=pk)
 	
-	# img=Entries.objects.all()
+# 	img=Entries.objects.get(id=pk)
 
-	if request.method == 'POST':
-		design = Entries.objects.get(id=pk)
+# 	if request.method == 'POST':
+# 		img=Entries.objects.get(id=pk)
+# 		customer = request.user	
+		
+# 		orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
+# 		cartItem, created = CartItem.objects.get_or_create(order=orderItem, product=product)
+# 		cartItem.quan=request.POST['quan']
+# 		cartItem.save()
 
-	return render(request, 'cdesign.html')	
+# 		return redirect('cart')
+# 	customer = request.user
+# 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
+# 	return render(request, 'productdetails.html', {'product':product, 'img':img, 'orderItem': orderItem })
 
 
 
+# def cdesign(request, pk):
+# 	# entry = Entries.objects.get(id=pk)
+	
+# 	# img=Entries.objects.all()
+
+# 	# if request.method == 'POST':
+# 	# 	img = Entries.objects.get(id=pk)
+	
+# 	return render(request, 'cdesign.html')	
 
 
-
-
-
-
-	# template_name = "registration.html"
-	# form_class = registrationFrms
-	# Rurl = reverse_lazy ("shop")
 

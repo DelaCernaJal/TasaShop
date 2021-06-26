@@ -1,5 +1,10 @@
 var updateBtns = document.getElementsByClassName('updateCart-Btn')
 
+// var designBtn = document.getElementsByClassName('designBtn')
+
+
+
+
 
 
 for (i = 0; i < updateBtns.length; i++) {
