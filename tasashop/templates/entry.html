@@ -4,24 +4,17 @@
 {% block content %}
 <div class="acountcontainer">
 	<dir class="container">
-		<h1>ENTRY</h1>
-		<h1>HA HA HA HA HA </h1>
+		<h1>{{request.user}},</h1>
 		<div class="header-row">
-			<div style="border: 1px solid red" class="col-2">
+			<div class="col-2">
 				<p>send us design, let customer buy your design for our customizable mugs</p>
- 
-
-				<form method="POST" action=".">
-				{% csrf_token %}
-
-					{{form}} 
-
-
-					<div>
-						<button type="submit" class="btn">Upload</button>
-						
-					</div>
-
+				
+				<form method="POST" action="{{entry}}" enctype='multipart/form-data'>
+					{% csrf_token %}
+					{% for field in form %}
+						{{field}}
+					{% endfor %}
+					<button type="submit" class="btn">Upload</button>
 				</form>			
 
 			</div> 

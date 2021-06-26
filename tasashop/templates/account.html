@@ -13,7 +13,7 @@
 	<div class="cart-row">
 		<div>
 			<p>send us design, let customer buy your design for our customizable mugs</p>
-			<a href="{% url 'entry' %}" class="btn"> Send Entry &#8594;</a>
+			<a href="{% url 'entry' %}" class="btn">Send Entry &#8594;</a>
 		</div>
 	</div>
 </div>
@@ -25,12 +25,13 @@
 			<h2 style="color: #1167b1; font-weight: 600;">YOUR ENTRIES..</h2>
 			<div class="smallcon">
 				<div class="row">
-					{% for img in img %}
+					{% for img in img %} 
 					<div class="box3">
-						<img style="height: 200px; width: 195px;" class="productPic" src="{{img.artFile.url}}">
+						<img style="height: 200px; width: 195px;" class="productPic" src="{{img.artURL}}">
 						<h3 style="font-weight: 500;">Design no.<span style="color: #1167b1; font-weight: 600;">{{img.id}}</span></h3>
-						<h4><strong>{{img.artName}}</strong></h4>
-						<p>By {{img.artBy}} || {{img.artPrice}}php </p>
+						<h4><strong style="font-size: 25px; font-weight: 300;">{{img.artname}}</strong></h4>
+						<p>{{img.artprice}}php </p>
+						<!-- By {{img.artby.username}} ||  -->
 					</div>
 					{% endfor %}
 				</div>
@@ -39,3 +40,4 @@
 	</div>
 </div>
 {% endblock %}
+

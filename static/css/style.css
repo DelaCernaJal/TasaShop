@@ -210,6 +210,16 @@ nav ul li a:hover{
 .pbox input:hover{
 	border: 1px orange solid;
 }
+
+.pbox select {
+	padding: 5px;
+	width: 220px;
+	padding: 10px;
+	border-radius: 4px;
+	font-size: 24px;
+	font-weight: 400;
+	border: 1px #1167b1 solid;
+} 
 .pbox .add-btn {
 	flex-basis: 18%;
 	padding: 10px;

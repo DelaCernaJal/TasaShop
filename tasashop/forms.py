@@ -13,8 +13,14 @@ from .models import Entries
 class EntryForm(forms.ModelForm): 
 	class Meta: 
 		model = Entries 
-		fields = ['artPrice','artName','artFile','artGcash',]
+		fields = ['artprice','artname','artgcash','artfile',]
 
+	def __init__(self, *args, **kwargs):
+		super(EntryForm, self).__init__(*args, **kwargs)
+		self.fields['artprice'].widget.attrs.update({'placeholder': 'Enter price'})
+		self.fields['artname'].widget.attrs.update({'placeholder': 'Enter art name'})
+		self.fields['artgcash'].widget.attrs.update({'placeholder': 'Gcash Account'})
+		self.fields['artfile'].widget.attrs.update({'placeholder': 'Upload art '})
 
 class UserLoginForm(UserCreationForm): 
 	class Meta: 
@@ -23,10 +29,10 @@ class UserLoginForm(UserCreationForm):
 
 	def __init__(self, *args, **kwargs):
 		super(UserLoginForm, self).__init__(*args, **kwargs)
-		self.fields['username'].widget.attrs.update({'class':'class-here', 'placeholder': 'Enter Username'})
-		self.fields['email'].widget.attrs.update({'class':'class-here', 'placeholder': 'Enter Email'})
-		self.fields['password1'].widget.attrs.update({'class':'class-here', 'placeholder': 'Enter Password'})
-		self.fields['password2'].widget.attrs.update({'class':'class-here', 'placeholder': 'Confirm Password'})
+		self.fields['username'].widget.attrs.update({'placeholder': 'Enter Username'})
+		self.fields['email'].widget.attrs.update({'placeholder': 'Enter Email'})
+		self.fields['password1'].widget.attrs.update({'placeholder': 'Enter Password'})
+		self.fields['password2'].widget.attrs.update({'placeholder': 'Confirm Password'})
 
 
 # class cosdesign(forms.ModelForm): 

@@ -4,42 +4,23 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-# login
-
-# class Customer(models.Model):
-# 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-# 	# Fname =  models.CharField(max_length=200, null=True)
-# 	# Lname =  models.CharField(max_length=200, null=True)
-# 	# email = models.EmailField(max_length=200, null=False)
-# 	device = models.CharField(max_length=200, null=True)
-# 	address = models.CharField(max_length=200, null=False)
-# 	regis_on = models.DateTimeField(auto_now_add=True)
-
-	
-# 	@receiver(post_save, sender=User)
-# 	def create_user_Customer(sender, instance, created, **kwargs):
-# 		if created:
-# 			Customer.objects.create(user=instance)
-
-# 	@receiver(post_save, sender=User)
-# 	def save_user_Customer(sender, instance, **kwargs):
-# 		instance.customer.save()
-
-# 	def __str__(self):
-# 		return self.user
-
-
-
 
 class Entries(models.Model):
-	artBy = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-	artGcash = models.DecimalField(max_digits=11, decimal_places=0, default=0)
-	artPrice = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-	artName = models.CharField(max_length=200, null=True)
-	artFile = models.ImageField(null=True, blank=True)
+	artby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+	artgcash = models.DecimalField(max_digits=11, decimal_places=0, default=0)
+	artprice = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+	artname = models.CharField(max_length=200, null=True)
+	artfile = models.ImageField(null=True, blank=True)
 	
 	def __str__(self):
-		return self.artName
+		return self.artname
+
+	def artURL(self):
+		try:
+			art = self.artfile.url
+		except:
+			art = ''
+		return art
 
 class Product(models.Model):
 	name = models.CharField(max_length=200, null=True)
@@ -102,17 +83,3 @@ class Shipping(models.Model):
 	order = models.ForeignKey(OrderTrans, on_delete=models.SET_NULL, null=True)
 	address = models.CharField(max_length=200, null=False)
 	date_added = models.DateTimeField(auto_now_add=True)
-
-# class Registre(models.Model):
-	# user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-	# Name =  models.CharField(max_length=200, null=True)
-	# username = models.CharField(max_length=200, null=True)
-	# gender_chs= (
-	# 				('F', 'Female'),
-	# 				('M', 'Male'),
-	# 				('O', 'other')
-	# 				)
-	# gender = models.CharField(choices=gender_chs,max_length=1, null=True)
-	# email = models.CharField(max_length=200, null=False)
-	# passw1 = models.CharField(max_length=100, null=False)
-	# passw2 = models.CharField(max_length=100, null=False)

@@ -131,69 +131,51 @@ def checkout(request):
 @login_required(login_url='login_url')
 def account(request):
 	customer = request.user
-
-	entry = request.GET.get('artName')
+	entry = request.GET.get('artby')
 	if entry == None:
-		userentry = Entries.objects.filter(artName=customer)
-
+		userentry = Entries.objects.filter(artby=customer)
+	img = Entries.objects.all()
 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
-	return render(request, 'account.html', {'orderItem': orderItem, 'userentry':userentry} )
+	return render(request, 'account.html', {'img':img,'orderItem': orderItem, 'userentry':userentry} )
 
 
-
+@login_required(login_url='login_url')
 def entry(request):
 	if request.method == "POST": 
 		form=EntryForm(data=request.POST,files=request.FILES) 
 		if form.is_valid(): 
-			form.save() 
+			form.save()
 			obj=form.instance 
-			return render (request,"entry.html", {"obj":obj}) 
+			return render(request,"entry.html",{"obj":obj}) 
 	else: 
-		form=EntryForm() 
-		img=Entries.objects.all()
+		form=EntryForm()
+	obj=form.instance 
+	img=Entries.objects.all() 
+	return render(request,"entry.html",{"img":img,"form":form, "obj":obj}) 
 
-	customer = request.user
-	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
-	return render(request,"account.html", {'img':img,'form':form, 'orderItem': orderItem}) 
-
-
-
-# def main(request):
-# 	customer = request.user
-# 	order, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
-# 	cartlist = order.cartitem_set.all()
-# 	return render(request, 'main.html', {'order': order})
 
 
 
 @login_required(login_url='login_url')
 def productdetails(request, pk):
 	product = Product.objects.get(id=pk)
-	img=Entries.objects.all()
-
-
-
 	if request.method == 'POST':
-
-
 		product = Product.objects.get(id=pk)
 		# product = .objects.get(id=pk)
 		customer = request.user
-		# artFile=request.POST['cdesign']
-		
+		# artFile=request.POST['cdesign']		
 		orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 		cartItem, created = CartItem.objects.get_or_create(order=orderItem, product=product)
 		# cartItem = Entries_set.all(artFile=artFile)
-
 		cartItem.quan = request.POST['quan']
 		# cartItem.cdesign = request.POST['cdesign']
 		cartItem.save()
 
 		return redirect('cart')
+	img=Entries.objects.all()
 	customer = request.user
 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 	return render(request, 'productdetails.html', {'product':product, 'img':img, 'orderItem': orderItem })
-
 
 
 
@@ -219,8 +201,6 @@ def productdetails(request, pk):
 # 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
 # 	return render(request, 'productdetails.html', {'product':product, 'img':img, 'orderItem': orderItem })
 
-
-
 # def cdesign(request, pk):
 # 	# entry = Entries.objects.get(id=pk)
 	
@@ -230,6 +210,65 @@ def productdetails(request, pk):
 # 	# 	img = Entries.objects.get(id=pk)
 	
 # 	return render(request, 'cdesign.html')	
+
+
+# if request.method == 'POST':
+# 		form = EntryForm(request.POST)
+# 		# if request.method == "POST": 
+# 		# form=EntryForm(data=request.POST,files=request.FILES) 
+# 		if form.is_valid(): 
+# 			artentry = Entries()
+# 			artentry.artprice = form.cleaned_data['artprice']
+# 			artentry.artname = form.cleaned_data['artname']
+# 			artentry.artfile = form.cleaned_data['artfile']
+# 			artentry.artgcash = form.cleaned_data['artgcash']
+# 			artentry.save()
+			
+
+# 			img = Entries.objects.all()
+# 			# img.save() 
+# 			# # obj=form.instance 
+# 			return render (request,"account.html", {"img":img}) 
+# 			# # else:
+# 	# artby = request.user
+# 	form=EntryForm()
+# 	img = Entries.objects.all()
+# 	customer = request.user
+# 	orderItem, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
+# 	return render(request,"entry.html", {'img':img,'form':form, 'orderItem': orderItem}) 
+
+
+
+# def main(request):
+# 	customer = request.user
+# 	order, created = OrderTrans.objects.get_or_create(customer=customer, complete=False)
+# 	cartlist = order.cartitem_set.all()
+# 	return render(request, 'main.html', {'order': order})
+
+
+# login
+
+# class Customer(models.Model):
+# 	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+# 	# Fname =  models.CharField(max_length=200, null=True)
+# 	# Lname =  models.CharField(max_length=200, null=True)
+# 	# email = models.EmailField(max_length=200, null=False)
+# 	device = models.CharField(max_length=200, null=True)
+# 	address = models.CharField(max_length=200, null=False)
+# 	regis_on = models.DateTimeField(auto_now_add=True)
+
+	
+# 	@receiver(post_save, sender=User)
+# 	def create_user_Customer(sender, instance, created, **kwargs):
+# 		if created:
+# 			Customer.objects.create(user=instance)
+
+# 	@receiver(post_save, sender=User)
+# 	def save_user_Customer(sender, instance, **kwargs):
+# 		instance.customer.save()
+
+# 	def __str__(self):
+# 		return self.user
 
 
 

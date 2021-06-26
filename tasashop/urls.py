@@ -15,9 +15,10 @@ urlpatterns = [
     path('signup/', signupUser, name='signup_url'),
     path('login/', loginUser, name='login_url'),
     path('logout/', logoutUser, name='logout_url'),
+
+
+
     # path('cdesign/<str:pk>/', cdesign, name='cdesign'),
-
-
     # path("CustomerLogout/", CustomerLogout.as_view(), name="CustomerLogout"),
     # path("CustomerLogout/", CustomerLogin.as_view(), name="CustomerLogout"),
     # path("register/", registerUser, name="register"),

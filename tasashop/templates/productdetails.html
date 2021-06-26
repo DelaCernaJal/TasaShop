@@ -40,7 +40,13 @@
 					<label>Quantity:</label><br>
 					<input required type="number" name="quan" value="1" max="100" min="1"><br>
 					<label>Design:</label><br>
-					<input type="number" name="Design" value="1" max="100" min="0"><br>
+					<!-- <input type="number" name="Design" value="1" max="100" min="0"><br> -->
+					
+					<select>
+						{% for img in img %}<option>Design No. {{img.id}}</option>{% endfor %}
+					</select>
+					<br>
+
 					<input type="file" id="cdesign" name="cdesign" accept="image/*"><br>
 					<input type="submit" name="add_to_cart" class="add-btn" value="Add to Cart">					
 				</form>
@@ -54,10 +60,10 @@
 			<div class="row">
 				{% for img in img %}
 				<div class="box3">
-					<img style="height: 200px; width: 195px;" class="productPic" src="{{img.artFile.url}}">
+					<img style="height: 200px; width: 195px;" class="productPic" src="{{img.artURL}}">
 					<h3 style="font-weight: 500;">Design no.<span style="color: #1167b1; font-weight: 600;">{{img.id}}</span></h3>
-					<h4><strong>{{img.artName}}</strong></h4>
-					<p>By {{img.artBy}} || {{img.artPrice}}php </p>
+					<h4><strong>{{img.artname}} </strong>||{{img.artprice}}php</h4>
+					<p>By {{img.artBy}}</p>
 				</div>
 				{% endfor %}
 			</div>
