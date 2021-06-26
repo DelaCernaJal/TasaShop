@@ -9,7 +9,7 @@
 			<div class="col-2">
 				<p>send us design, let customer buy your design for our customizable mugs</p>
 				
-				<form method="POST" action="{{entry}}" enctype='multipart/form-data'>
+				<form method="POST" action="{% url 'entry' %}" enctype='multipart/form-data'>
 					{% csrf_token %}
 					{% for field in form %}
 						{{field}}
