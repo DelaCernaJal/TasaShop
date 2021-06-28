@@ -3,6 +3,11 @@
 import os
 import sys
 
+# from django.contrib.auth.models import User
+# user = User.objects.get(username='your_user')
+# user.set_password('simple')
+# user.save()
+
 
 def main():
     """Run administrative tasks."""
